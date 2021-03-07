@@ -55,7 +55,6 @@ public class PlayerMovement : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
     
     private void FixedUpdate() {
         Movement();
