@@ -15,8 +15,8 @@ TagManager:
   - 
   - Ground
   - Attractors
-  - 
-  - 
+  - PlayerBody
+  - PlayerColliders
   - 
   - 
   - 

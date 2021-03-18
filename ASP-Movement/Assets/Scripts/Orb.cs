@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Orb : MonoBehaviour
 {
+    //script currently unnecessary
+
     [SerializeField] private Material m_on;
     [SerializeField] private Material m_off;
     [SerializeField] private Attractor m_attractor;
     [SerializeField] private MeshRenderer m_renderer;
 
     private bool m_state;
-
+    
     public void Toggle()
     {
         m_state = !m_state;
