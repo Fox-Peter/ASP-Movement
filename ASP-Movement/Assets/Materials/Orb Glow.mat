@@ -20,19 +20,30 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Orb
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Name: Orb Glow
+  m_Shader: {fileID: -6465566751694194690, guid: 0f3d3fb04ee4651478e7c20ef86c7325, type: 3}
   m_ShaderKeywords: _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_33FAC995:
+        m_Texture: {fileID: 2800000, guid: 2be4fb19d5630be448587bbefb661ffc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E5AB783F:
+        m_Texture: {fileID: 2800000, guid: d565944e8adaab841b0cd53c62a6566e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_FCD42002:
+        m_Texture: {fileID: 2800000, guid: ff0203d9824bd964bbf429450b0e0c11, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: d565944e8adaab841b0cd53c62a6566e, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -53,8 +64,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: 7182c0fa32eb0a549850e6f74afae094, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NormalFromTexture_F6988DD_Texture_0:
+        m_Texture: {fileID: 2800000, guid: ff0203d9824bd964bbf429450b0e0c11, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_FECE14E2_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 2be4fb19d5630be448587bbefb661ffc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -62,6 +81,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_2C19B54B: 6
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -74,6 +94,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0.377
     - _OcclusionStrength: 1
+    - _PulseTime: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.345
@@ -84,8 +105,10 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_FBD47D99: {r: 0, g: 14.054902, b: 383.49805, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 3.9999995, b: 3.5183241, a: 1}
+    - _Color: {r: 1.3176471, g: 0, b: 14.494118, a: 1}
+    - _EmissionColor: {r: 2, g: 2, b: 2, a: 1}
+    - _GlowColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
