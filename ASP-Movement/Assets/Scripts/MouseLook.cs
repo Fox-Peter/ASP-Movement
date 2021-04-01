@@ -1,17 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Mouselook : MonoBehaviour
-{
-    [SerializeField] private float mouseSmoothTime;
-    [SerializeField] private float m_mouseSensitivity;
-    [SerializeField] private Transform m_player;
+public class MouseLook : MonoBehaviour {
 
-    private Vector2 m_currentMouseDelta;
-    private Vector2 m_currentMouseDeltaVelocity;
+    [SerializeField] private float m_sensitivity;
+    [SerializeField] private Transform m_head;
+    [SerializeField] private Transform m_orientation;
 
-    private float m_yRotation;
+    private float m_xAxisRotation;
+    private float m_yAxisRotation;
 
     private void Start()
     {
@@ -20,13 +17,21 @@ public class Mouselook : MonoBehaviour
 
     private void Update()
     {
-        Vector2 targetMouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * m_mouseSensitivity * Time.deltaTime;
-        m_currentMouseDelta = Vector2.SmoothDamp(m_currentMouseDelta, targetMouseDelta, ref m_currentMouseDeltaVelocity, mouseSmoothTime);
+        PlayerInput();
 
-        m_yRotation -= m_currentMouseDelta.y;
-        m_yRotation = Mathf.Clamp(m_yRotation, -90f, 90f);
+        transform.position = m_head.transform.position;
+        m_orientation.localRotation = Quaternion.Euler(0f, m_yAxisRotation, 0f);
+        transform.localRotation = Quaternion.Euler(m_xAxisRotation, m_yAxisRotation, 0f);
+    }
 
-        transform.localRotation = Quaternion.Euler(m_yRotation, 0f, 0f);
-        m_player.Rotate(Vector3.up, m_currentMouseDelta.x); 
+    private void PlayerInput()
+    {
+        float mouseInputX = Input.GetAxis("Mouse X") * m_sensitivity * Time.deltaTime;
+        float mouseInputY = Input.GetAxis("Mouse Y") * m_sensitivity * Time.deltaTime;
+
+        m_yAxisRotation += mouseInputX;
+
+        m_xAxisRotation -= mouseInputY;
+        m_xAxisRotation = Mathf.Clamp(m_xAxisRotation, -90f, 90f);
     }
 }
