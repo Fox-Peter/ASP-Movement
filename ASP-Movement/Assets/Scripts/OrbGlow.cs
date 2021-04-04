@@ -10,8 +10,10 @@ public class OrbGlow : MonoBehaviour
     [SerializeField] private Color glowColor;
 
     [SerializeField] private MeshRenderer m_renderer;
-
-    [SerializeField] private bool m_state;
+    [SerializeField] private GameObject gravityFieldObj;
+    
+    private GameObject gravityField;
+    private bool m_state;
 
     private void Start()
     {
@@ -26,11 +28,17 @@ public class OrbGlow : MonoBehaviour
         {
             m_renderer.material.SetColor("_GlowColor", glowColor);
             m_renderer.material.SetFloat("_PulseTime", pulseTime);
+            gravityField = Instantiate(gravityFieldObj, transform) as GameObject;
         }
         else
         {
             m_renderer.material.SetColor("_GlowColor", Color.black);
             m_renderer.material.SetFloat("_PulseTime", 0.0f);
+           
+            if(gravityField)
+            {
+                Destroy(gravityField);
+            }
         }
     }
 }
