@@ -30,14 +30,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode m_jumpButton;
     [SerializeField] private KeyCode m_sprintButton;
 
-    [Header("Stairs/Slopes")]
-    [SerializeField] private float m_stepHeight;
-    [SerializeField] private float m_stepSmoothing;
-    [SerializeField] private Transform m_lowerStep;
-    [SerializeField] private bool m_lowerColliding;
-    [SerializeField] private Transform m_upperStep;
-    [SerializeField] private bool m_upperColliding;
-
     [Header("General Components")]
     [SerializeField] private float m_playerHeight;
     [SerializeField] private Rigidbody m_rb;
@@ -47,13 +39,12 @@ public class PlayerMovement : MonoBehaviour
     private float verticalMove;
     private Vector3 m_moveDir;
 
-    private float m_slopeAngle;
     private Vector3 m_slopeMoveDir;
     private RaycastHit m_slopeHit;
 
-    private void Start()
+    public Vector3 Velocity
     {
-        //m_upperStep.position = new Vector3(m_upperStep.position.x, m_stepHeight, m_upperStep.position.z);
+        get => m_rb.velocity;
     }
 
     private void Update()
@@ -79,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MoveRB();
-        //StepClimb();
     }
 
     private void MoveRB()
@@ -141,17 +131,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool OnSlope()
     {
-        //Debug.DrawRay(transform.position + m_moveDir, new Vector3(0f, m_playerHeight * 0.5f + 0.2f, 0f), Color.yellow);
-        //
-        //if (Physics.Raycast(transform.position + m_moveDir, Vector3.down, out m_slopeHit, m_playerHeight * 0.5f + 0.2f))
-        //{
-        //    if (m_slopeHit.normal != Vector3.up)
-        //    {
-        //        return true;
-        //    }
-        //}
-        //return false;
-
         if (Physics.Raycast(transform.position, Vector3.down, out m_slopeHit, m_playerHeight * 0.5f + 0.2f))
         {
             if(m_slopeHit.normal != Vector3.up)
@@ -160,38 +139,5 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         return false;
-    }
-
-    //not working stair climber
-    private void StepClimb()
-    {
-        RaycastHit lowerHit;
-
-        if (Physics.Raycast(m_lowerStep.position, m_moveDir, out lowerHit, 0.3f))
-        {
-            m_lowerColliding = true;
-        }
-        else
-        {
-            m_lowerColliding = false;
-        }
-
-        RaycastHit upperHit;
-        if (Physics.Raycast(m_upperStep.position, m_moveDir, out upperHit, 0.4f))
-        {
-            m_upperColliding = true;
-        }
-        else
-        {
-            m_upperColliding = false;
-        }
-
-        if (m_lowerColliding)
-        {
-            if (!m_upperColliding)
-            {
-                m_rb.position += new Vector3(0f, m_stepSmoothing * Time.deltaTime, 0f);
-            }
-        }
     }
 }
