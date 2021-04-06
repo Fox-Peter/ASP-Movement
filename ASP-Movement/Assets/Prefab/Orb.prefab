@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6867326140394709803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 16.89, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -92,7 +92,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6867326140394709803}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a4690ac886780414f9d77cd489d0dcb5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -109,8 +109,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   pulseTime: 6
   glowColor: {r: 1.5058824, g: 38.14902, b: 47.937256, a: 0}
   m_renderer: {fileID: 4921687606423749374}
-  gravityFieldObj: {fileID: 3337432142505490105, guid: ff861a65d20ec6c44b1e5ca2f507b1ba, type: 3}
+  gravityFieldObj: {fileID: 601918845657631512, guid: ff861a65d20ec6c44b1e5ca2f507b1ba, type: 3}
 --- !u!114 &2579110722070612572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,5 +142,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0fcb81b75579854e9df83cc0e307a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_forceMultiplier: 10
+  m_forceMultiplier: 100
   m_rb: {fileID: 6199680523916225280}

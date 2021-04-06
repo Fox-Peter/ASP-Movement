@@ -17,7 +17,6 @@ public class OrbGlow : MonoBehaviour
 
     private void Start()
     {
-        m_state = true;
         Toggle();
     }
     public void Toggle()
@@ -29,6 +28,11 @@ public class OrbGlow : MonoBehaviour
             m_renderer.material.SetColor("_GlowColor", glowColor);
             m_renderer.material.SetFloat("_PulseTime", pulseTime);
             gravityField = Instantiate(gravityFieldObj, transform) as GameObject;
+            var vfx = gravityField.GetComponentsInChildren<ParticleSystem>();
+            foreach(ParticleSystem fx in  vfx)
+            {
+                fx.transform.localScale = transform.localScale;
+            }
         }
         else
         {

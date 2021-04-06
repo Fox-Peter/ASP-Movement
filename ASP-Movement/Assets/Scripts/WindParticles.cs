@@ -6,16 +6,16 @@ using UnityEngine.UI;
 
 public class WindParticles : MonoBehaviour
 {
-    [SerializeField] private Color m_particleColour;
+   [SerializeField] private Color m_particleColour;
 
-    [SerializeField] private Transform m_player;
+   [SerializeField] private Transform m_player;
    [SerializeField] private Transform m_playerCamera;
    [SerializeField] private PlayerMovement m_moveScript;
    [SerializeField] private ParticleSystem m_particles;
 
-    [SerializeField] private Camera m_particleCamera;
-    [SerializeField] private Vector2Int m_particleCameraResolution;
-    [SerializeField] private RawImage m_targetImage;
+   [SerializeField] private Camera m_particleCamera;
+   [SerializeField] private Vector2Int m_particleCameraResolution;
+   [SerializeField] private RawImage m_targetImage;
 
     private RenderTexture m_renderTexture;
 
