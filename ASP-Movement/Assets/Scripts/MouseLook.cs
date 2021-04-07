@@ -4,7 +4,6 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour {
 
     [SerializeField] private float m_sensitivity;
-    [SerializeField] private Transform m_head;
     [SerializeField] private Transform m_orientation;
 
     private float m_xAxisRotation;
@@ -19,7 +18,6 @@ public class MouseLook : MonoBehaviour {
     {
         PlayerInput();
 
-        transform.position = m_head.transform.position;
         m_orientation.localRotation = Quaternion.Euler(0f, m_yAxisRotation, 0f);
         transform.localRotation = Quaternion.Euler(m_xAxisRotation, m_yAxisRotation, 0f);
     }
@@ -33,5 +31,12 @@ public class MouseLook : MonoBehaviour {
 
         m_xAxisRotation -= mouseInputY;
         m_xAxisRotation = Mathf.Clamp(m_xAxisRotation, -90f, 90f);
+    }
+
+    //faces player toward normalized vector dir
+    public void FaceDirection(Vector3 dir)
+    {
+        m_xAxisRotation = 0f; //face forward with no vertical difference
+        m_yAxisRotation = Mathf.Atan2(dir.x, dir.z) * 180 / (float)Math.PI;
     }
 }
