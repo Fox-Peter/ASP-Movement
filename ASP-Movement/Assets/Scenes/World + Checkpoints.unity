@@ -588,6 +588,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &146423303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7352261855752369047, guid: b0a50a299b20a1447802521aa796ab94, type: 3}
+  m_PrefabInstance: {fileID: 7352261855752369043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adb4e1b854050247b242741be5b9928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &185194771
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +844,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326604627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3013562054011911792, guid: b0a50a299b20a1447802521aa796ab94, type: 3}
+  m_PrefabInstance: {fileID: 7352261855752369043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adb4e1b854050247b242741be5b9928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &365406773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,17 +1606,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7352261854982162769, guid: b0a50a299b20a1447802521aa796ab94, type: 3}
   m_PrefabInstance: {fileID: 7352261855752369043}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &773585603 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7352261854982162768, guid: b0a50a299b20a1447802521aa796ab94, type: 3}
-  m_PrefabInstance: {fileID: 7352261855752369043}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1965379e06261d141b84accfb27096ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &798518047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6054654369306737041, guid: 8e15a15b84629bc4aaa7230316745d2c, type: 3}
@@ -7682,9 +7693,10 @@ GameObject:
   - component: {fileID: 1792966344}
   - component: {fileID: 1792966340}
   - component: {fileID: 1792966342}
-  - component: {fileID: 1792966343}
   - component: {fileID: 1792966345}
   - component: {fileID: 1792966341}
+  - component: {fileID: 1792966347}
+  - component: {fileID: 1792966346}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -7747,27 +7759,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792966338}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0fcb81b75579854e9df83cc0e307a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_forceMultiplier: 0
   m_rb: {fileID: 1792966340}
---- !u!114 &1792966343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792966338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a13a66a75b3ee0d4f97cfe17dddacd06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_playerAttractor: {fileID: 1792966342}
-  m_gravitySuitHUD: {fileID: 773585603}
 --- !u!114 &1792966344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7784,7 +7782,7 @@ MonoBehaviour:
   m_baseSpeed: 6
   m_baseMulti: 7
   m_sprintMulti: 1.6
-  m_maxSpeed: 15
+  m_maxSpeed: 50
   m_airMulti: 0.1
   m_groundDrag: 7
   m_airDrag: 0.5
@@ -7814,6 +7812,41 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1792966346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792966338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5eb4d4977fc7f74b8b81f4555ee082f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: Fire1
+  OnButtonDown:
+  - {fileID: 1792966347}
+  - {fileID: 326604627}
+  - {fileID: 146423303}
+  - {fileID: 2007822025}
+  OnButtonUp: []
+--- !u!114 &1792966347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792966338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5632906d75099be4ea6f4f693ef485db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: ToggleBehaviourAction
+  Targets:
+  - Behaviour: {fileID: 1792966342}
+    State: 2
 --- !u!1001 &1837100052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8057,6 +8090,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972416713}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2007822025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7352261855752369046, guid: b0a50a299b20a1447802521aa796ab94, type: 3}
+  m_PrefabInstance: {fileID: 7352261855752369043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adb4e1b854050247b242741be5b9928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2029696460
 GameObject:
   m_ObjectHideFlags: 0
