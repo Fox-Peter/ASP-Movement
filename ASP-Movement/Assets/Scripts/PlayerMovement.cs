@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground Detection")]
     [SerializeField] private bool m_isGrounded;
+    [SerializeField] private bool m_onSlope;
     [SerializeField] private float m_groundCheckDist;
     [SerializeField] private Transform m_groundCheck;
     [SerializeField] private LayerMask m_groundMask;
@@ -50,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         m_isGrounded = Physics.CheckSphere(m_groundCheck.position, m_groundCheckDist, m_groundMask);
+
+        if (m_isGrounded)
+        {
+            m_onSlope = CheckOnSlope();
+        }
 
         PlayerInput();
         ApplyDrag();
@@ -80,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (m_rb.velocity.magnitude < m_maxSpeed)
         {
-            if (!OnSlope())
+            if (!m_onSlope)
             {
                 m_rb.AddForce(m_moveDir.normalized * speed, ForceMode.Acceleration);
             }
@@ -129,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         m_rb.AddForce(transform.up * m_jumpHeight, ForceMode.Impulse);
     }
 
-    private bool OnSlope()
+    private bool CheckOnSlope()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out m_slopeHit, m_playerHeight * 0.5f + 0.2f))
         {
