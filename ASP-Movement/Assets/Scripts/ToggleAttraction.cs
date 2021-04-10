@@ -14,8 +14,6 @@ public class ToggleAttraction : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             m_playerAttractor.enabled = !m_playerAttractor.enabled;
-
-            if(m_gravitySuitHUD)
             m_gravitySuitHUD.Toggle();
         }
     }
