@@ -1358,11 +1358,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &368511658 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6382035172652212225, guid: cff5f601866a2774f89654be04ac9265, type: 3}
-  m_PrefabInstance: {fileID: 6382035172418448043}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &456710149
 GameObject:
   m_ObjectHideFlags: 0
@@ -28373,7 +28368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6867326140394709803, guid: 8e15a15b84629bc4aaa7230316745d2c, type: 3}
       propertyPath: m_Name
-      value: New Orb
+      value: Orb
       objectReference: {fileID: 0}
     - target: {fileID: 6867326140394709803, guid: 8e15a15b84629bc4aaa7230316745d2c, type: 3}
       propertyPath: m_TagString
@@ -29581,7 +29576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sensitivity: 150
-  m_head: {fileID: 368511658}
   m_orientation: {fileID: 1686077741}
 --- !u!114 &1574760595
 MonoBehaviour:
