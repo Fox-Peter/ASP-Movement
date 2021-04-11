@@ -25,6 +25,9 @@ public class Respawn : MonoBehaviour
     private float m_respawnTimer;
     private float m_centreTimer;
 
+    private bool m_justRespawned;
+    private bool m_justCentered;
+
     private void Update()
     {
         bool canStartCPTimer = true;
@@ -40,8 +43,23 @@ public class Respawn : MonoBehaviour
             canStartCPTimer = false;
         }
 
+        //Flags for making sure the player cant continuously TP with 1 long keypress
+        if(Input.GetKeyUp(m_respawnKey))
+        {
+            m_justRespawned = false;
+            m_respawnTimer = 0f;
+            m_checkpointHUD.SetActive(false);
+        }
+
+        if (Input.GetKeyUp(m_centreKey))
+        {
+            m_justCentered = false;
+            m_centreTimer = 0f;
+            m_centreHUD.SetActive(false);
+        }
+
         //Handle respawn timer
-        if (Input.GetKey(m_respawnKey) && canStartCPTimer)
+        if (Input.GetKey(m_respawnKey) && canStartCPTimer && !m_justRespawned)
         {
             m_checkpointHUD.SetActive(true);
 
@@ -51,11 +69,13 @@ public class Respawn : MonoBehaviour
             {
                 m_respawnTimer = 0f;
                 RespawnPlayer();
+                m_justRespawned = true;
+                m_checkpointHUD.SetActive(false);
             }
         }
 
         //Handle centre timer
-        if (Input.GetKey(m_centreKey) && canStartHTimer)
+        if (Input.GetKey(m_centreKey) && canStartHTimer && !m_justCentered)
         {
             m_centreHUD.SetActive(true);
 
@@ -65,19 +85,9 @@ public class Respawn : MonoBehaviour
             {
                 m_centreTimer = 0f;
                 TelePlayerCentre();
+                m_justCentered = true;
+                m_centreHUD.SetActive(false);
             }
-        }
-
-        //Handle releasing of keys
-        if (!Input.GetKey(m_respawnKey))
-        {
-            m_respawnTimer = 0f;
-            m_checkpointHUD.SetActive(false);
-        }
-        if (!Input.GetKey(m_centreKey))
-        {
-            m_centreTimer = 0f;
-            m_centreHUD.SetActive(false);
         }
 
         //Make sliders on HUD change 

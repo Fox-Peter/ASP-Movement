@@ -52,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
     {
         m_isGrounded = Physics.CheckSphere(m_groundCheck.position, m_groundCheckDist, m_groundMask);
 
+        //Debug.Log(m_orientation.forward);
+
         if (m_isGrounded)
         {
             m_onSlope = CheckOnSlope();

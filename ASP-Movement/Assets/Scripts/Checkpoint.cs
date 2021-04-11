@@ -12,11 +12,6 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private Material m_on;
     [SerializeField] private MeshRenderer m_renderer;
 
-    private void Start()
-    {
-        m_forward = m_forward.normalized;
-    }
-
     public Vector3 CheckpointPos
     {
         get => transform.position;
