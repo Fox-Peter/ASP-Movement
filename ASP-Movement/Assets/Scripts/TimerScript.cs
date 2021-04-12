@@ -33,9 +33,10 @@ public class TimerScript : MonoBehaviour
             m_milliseconds = (int)((m_timer * 100) % 100);
             m_seconds      = (int)(m_timer % 60);
             m_minutes      = (int)((m_timer / 60) % 60);
-
-            m_text.text = "<mspace=0.75em>" + m_minutes.ToString("00") + ":" + m_seconds.ToString("00") + "." + m_milliseconds.ToString("00") + "</mspace>";
         }
+
+        m_text.text = "<mspace=0.5em>" + m_minutes.ToString("00") + ":" + m_seconds.ToString("00") + "." + m_milliseconds.ToString("00") + "</mspace>";
+
     }
 
     public void ResetTimer()

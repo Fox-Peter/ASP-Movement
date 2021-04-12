@@ -14,11 +14,6 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private MeshRenderer m_renderer;
     [SerializeField] private AudioSource m_onSfx;
 
-    private void Start()
-    {
-        m_forward = m_forward.normalized;
-    }
-
     public Vector3 CheckpointPos
     {
         get => transform.position;
