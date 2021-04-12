@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2771120521410200865}
   - component: {fileID: 3013562054011911792}
   m_Layer: 12
-  m_Name: GS-Sparks-Loop-Controller
+  m_Name: 'Sparks: Loop'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,11 +27,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2206837735623507899}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7352261854982162769}
+  m_Father: {fileID: 1370152533431578980}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &446484481667534438
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2250049846631769736}
   m_Layer: 12
-  m_Name: GS-Sparks
+  m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,15 +269,90 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3477904379406658893}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7352261856612957230}
   - {fileID: 1056024047671540716}
-  m_Father: {fileID: 7352261854982162769}
+  m_Father: {fileID: 1370152533431578980}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4383620620391428038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1370152533431578980}
+  - component: {fileID: 4440125550275005105}
+  - component: {fileID: 9191024517192072089}
+  m_Layer: 12
+  m_Name: ManageHUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1370152533431578980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383620620391428038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4136168173467302735}
+  - {fileID: 173909367771862432}
+  - {fileID: 2250049846631769736}
+  m_Father: {fileID: 7352261854982162769}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4440125550275005105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383620620391428038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adb4e1b854050247b242741be5b9928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Reset HUD
+  Targets:
+  - GameObject: {fileID: 2206837735623507899}
+    State: 0
+  - GameObject: {fileID: 7105408403089501900}
+    State: 0
+  - GameObject: {fileID: 7883886300503217101}
+    State: 1
+--- !u!114 &9191024517192072089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383620620391428038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adb4e1b854050247b242741be5b9928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Toggle HUD
+  Targets:
+  - GameObject: {fileID: 2206837735623507899}
+    State: 2
+  - GameObject: {fileID: 7105408403089501900}
+    State: 2
+  - GameObject: {fileID: 7883886300503217101}
+    State: 2
 --- !u!1 &4655291634974589644
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +365,7 @@ GameObject:
   - component: {fileID: 4724628719465403859}
   - component: {fileID: 8123838807433907975}
   m_Layer: 12
-  m_Name: CropVision
+  m_Name: VFX_Vignette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5275,7 +5350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4136168173467302735}
   m_Layer: 12
-  m_Name: GS-CropVision
+  m_Name: Vignette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5295,7 +5370,7 @@ Transform:
   - {fileID: 1684297491426207876}
   - {fileID: 9187279240304332124}
   - {fileID: 1660326568865097838}
-  m_Father: {fileID: 7352261854982162769}
+  m_Father: {fileID: 1370152533431578980}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7105408403089501900
@@ -5310,7 +5385,7 @@ GameObject:
   - component: {fileID: 5427243689199663369}
   - component: {fileID: 7352261855752369047}
   m_Layer: 12
-  m_Name: CropVisionFadeIn
+  m_Name: Vignette-FadeIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5370,9 +5445,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7352261854982162769}
-  - component: {fileID: 7352261854982162768}
   m_Layer: 12
-  m_Name: HUD-GravitySuit
+  m_Name: HUD_GravitySuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5389,28 +5463,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 100}
   m_LocalScale: {x: 21.383343, y: 21.383343, z: 21.383343}
   m_Children:
-  - {fileID: 4136168173467302735}
-  - {fileID: 173909367771862432}
-  - {fileID: 2250049846631769736}
+  - {fileID: 1370152533431578980}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7352261854982162768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7352261854982162770}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1965379e06261d141b84accfb27096ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visionVFX: {fileID: 6483562388672554455}
-  electricityVFX: {fileID: 7352261856612957228}
-  trailsSpawnRate: 100
-  lerpTime: 10
 --- !u!1 &7352261856612957231
 GameObject:
   m_ObjectHideFlags: 0
@@ -5423,7 +5479,7 @@ GameObject:
   - component: {fileID: 7352261856612957228}
   - component: {fileID: 7352261856612957229}
   m_Layer: 12
-  m_Name: GS-Sparks_Single
+  m_Name: Sparks_Single
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5543,7 +5599,7 @@ GameObject:
   - component: {fileID: 1194484748287364648}
   - component: {fileID: 7352261855752369046}
   m_Layer: 12
-  m_Name: CropVisionFadeOut
+  m_Name: VignetteFadeOut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

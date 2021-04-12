@@ -9,11 +9,6 @@ public class MouseLook : MonoBehaviour {
     private float m_xAxisRotation;
     private float m_yAxisRotation;
 
-    private void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
     private void Update()
     {
         PlayerInput();

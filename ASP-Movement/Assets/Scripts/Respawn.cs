@@ -14,6 +14,7 @@ public class Respawn : MonoBehaviour
     [SerializeField] private Checkpoint m_centreCP;
     [SerializeField] private float m_respawnMaxTime;
     [SerializeField] private float m_centreMaxTime;
+    [SerializeField] private Logic m_disableGravitySuit;
 
     [Header("Interaction with HUD")]
     [SerializeField] private GameObject m_checkpointHUD;
@@ -116,6 +117,7 @@ public class Respawn : MonoBehaviour
             m_player.position = m_currentCP.CheckpointPos;
             m_playerCam.FaceDirection(m_currentCP.CPForward);
             m_playerRB.velocity = Vector3.zero;
+            m_disableGravitySuit.Execute();
         }
     }
 

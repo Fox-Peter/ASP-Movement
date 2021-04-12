@@ -170,8 +170,11 @@ GameObject:
   - component: {fileID: 6382035174209786991}
   - component: {fileID: 6382035174209786989}
   - component: {fileID: 6382035174209786978}
+  - component: {fileID: 6533501673175344024}
   - component: {fileID: 6382035174209786988}
+  - component: {fileID: 5233584373409181147}
   - component: {fileID: 6382035174209786990}
+  - component: {fileID: 5500761597421684151}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -217,6 +220,7 @@ MonoBehaviour:
   m_airDrag: 0.5
   m_jumpHeight: 12
   m_isGrounded: 0
+  m_onSlope: 0
   m_groundCheckDist: 0.3
   m_groundCheck: {fileID: 6382035173795243393}
   m_groundMask:
@@ -271,6 +275,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6533501673175344024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6382035174209786985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8418632e8782a49a3e9573d1332e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_player: {fileID: 6382035174209786984}
+  m_playerRB: {fileID: 6382035174209786991}
+  m_playerCam: {fileID: 0}
+  m_respawnKey: 114
+  m_centreKey: 104
+  m_currentCP: {fileID: 0}
+  m_centreCP: {fileID: 0}
+  m_respawnMaxTime: 0.3
+  m_centreMaxTime: 1
+  m_turnOffAttractor: {fileID: 0}
+  m_checkpointHUD: {fileID: 0}
+  m_checkpointSlider: {fileID: 0}
+  m_centreHUD: {fileID: 0}
+  m_centreSlider: {fileID: 0}
+  m_timerGO: {fileID: 0}
 --- !u!114 &6382035174209786988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +321,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   OnButtonUp: []
+--- !u!114 &5233584373409181147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6382035174209786985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e18c27b97b519428f0e60becdc0aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Disable Gravity Suit
+  calls:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &6382035174209786990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,10 +349,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5632906d75099be4ea6f4f693ef485db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Toggle Attraction
+  Name: Toggle Attractor
   Targets:
   - Behaviour: {fileID: 6382035174209786989}
     State: 2
+--- !u!114 &5500761597421684151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6382035174209786985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5632906d75099be4ea6f4f693ef485db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Disable Attractor
+  Targets:
+  - Behaviour: {fileID: 6382035174209786989}
+    State: 0
 --- !u!1 &6382035174256564834
 GameObject:
   m_ObjectHideFlags: 0
