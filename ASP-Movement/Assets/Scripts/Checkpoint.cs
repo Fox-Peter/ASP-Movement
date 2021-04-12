@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Checkpoint : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private Material m_off;
     [SerializeField] private Material m_on;
     [SerializeField] private MeshRenderer m_renderer;
+    [SerializeField] private AudioSource m_onSfx;
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class Checkpoint : MonoBehaviour
     {
         m_currentCheckpoint = true;
         m_renderer.material = m_on;
+        m_onSfx.Play();
     }
 
     public void TurnOff()
