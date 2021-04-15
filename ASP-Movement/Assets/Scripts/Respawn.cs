@@ -31,7 +31,7 @@ public class Respawn : MonoBehaviour
 
     private void Update()
     {
-        if(m_player.position.y < -100f)
+        if(m_player.position.y < -40f)
         {
             RespawnPlayer();
         }
