@@ -55,4 +55,9 @@ public class TimerScript : MonoBehaviour
         m_running = active;
     }
 
+    public bool Running
+    {
+        get => m_running;
+    }
+
 }
