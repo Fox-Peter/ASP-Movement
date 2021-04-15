@@ -31,6 +31,11 @@ public class Respawn : MonoBehaviour
 
     private void Update()
     {
+        if(m_player.position.y < -100f)
+        {
+            RespawnPlayer();
+        }
+
         bool canStartCPTimer = true;
         bool canStartHTimer = true;
 

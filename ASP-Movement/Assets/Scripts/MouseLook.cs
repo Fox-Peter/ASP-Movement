@@ -14,6 +14,9 @@ public class MouseLook : MonoBehaviour {
         PlayerInput();
 
         m_orientation.localRotation = Quaternion.Euler(0f, m_yAxisRotation, 0f);
+
+        Debug.Log(m_orientation.forward);
+
         transform.localRotation = Quaternion.Euler(m_xAxisRotation, m_yAxisRotation, 0f);
     }
 

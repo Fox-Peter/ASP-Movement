@@ -15,6 +15,8 @@ public class TimerScript : MonoBehaviour
 
     public float Timer { get => m_timer; set => m_timer = value; }
 
+    public string Text { get => "<mspace=0.5em>" + m_minutes.ToString("00") + ":" + m_seconds.ToString("00") + "." + m_milliseconds.ToString("00") + "</mspace>"; }
+
     void Start()
     {
         m_running = false;

@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float m_playerHeight;
     [SerializeField] private Rigidbody m_rb;
     [SerializeField] private Transform m_orientation;
+    [SerializeField] private Camera m_playerCam;
 
     private float horizontalMove;
     private float verticalMove;
@@ -112,14 +113,16 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
 
-        if (Input.GetKeyDown(m_sprintButton) && m_isGrounded)
+        if ((Input.GetKeyDown(m_sprintButton) && m_isGrounded))
         {
             m_sprinting = true;
+            StartCoroutine(LerpFov(70));
         }
 
         if (Input.GetKeyUp(m_sprintButton))
         {
             m_sprinting = false;
+            StartCoroutine(LerpFov(60));
         }
     }
 
@@ -146,6 +149,27 @@ public class PlayerMovement : MonoBehaviour
                 return true;
             }
         }
+        return false;
+    }
+
+    IEnumerator LerpFov(float targetFOV)
+    {
+        while (!RoughlyEquates(m_playerCam.fieldOfView, targetFOV))
+        {
+            m_playerCam.fieldOfView = Mathf.Lerp(m_playerCam.fieldOfView, targetFOV, 0.005f);
+            yield return null;
+        }
+
+        yield return null;
+    }
+
+    private bool RoughlyEquates(float val1, float val2)
+    {
+        if(Mathf.Abs(val1 - val2) < 0.005f)
+        {
+            return true;
+        }
+
         return false;
     }
 }
