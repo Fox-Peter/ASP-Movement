@@ -13,12 +13,15 @@ public class StopTimer : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            m_timerGO.SetActive(false);
-            m_timerScript.ToggleTimer(false);
-            if(m_timerText)
-            m_timerText.text = m_timerScript.Text;
+            if (m_timerScript.Running)
+            {
+                m_timerGO.SetActive(false);
+                m_timerScript.ToggleTimer(false);
+                if (m_timerText)
+                    m_timerText.text = m_timerScript.Text;
 
-            m_timerScript.ResetTimer();
+                m_timerScript.ResetTimer();
+            }
         }
     }
 }
