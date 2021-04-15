@@ -8,24 +8,9 @@ public class WindParticles : MonoBehaviour
 {
    [SerializeField] private Color m_particleColour;
 
-   [SerializeField] private Transform m_player;
    [SerializeField] private Transform m_playerCamera;
    [SerializeField] private PlayerMovement m_moveScript;
    [SerializeField] private ParticleSystem m_particles;
-
-   [SerializeField] private Camera m_particleCamera;
-   [SerializeField] private Vector2Int m_particleCameraResolution;
-   [SerializeField] private RawImage m_targetImage;
-
-    private RenderTexture m_renderTexture;
-
-    private void Start()
-    {
-        m_targetImage.color = new Color(1f, 1f, 1f, 1f);
-        m_renderTexture = new RenderTexture(m_particleCameraResolution.x, m_particleCameraResolution.y, 32);
-        m_particleCamera.targetTexture = m_renderTexture;
-        m_targetImage.texture = m_renderTexture;
-    }
 
     private void Update()
     {      

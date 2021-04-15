@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Respawn : MonoBehaviour
 {
+    [SerializeField] private float m_respawnMaxTime;
+    [SerializeField] private float m_centreMaxTime;
     [SerializeField] private Transform m_player;
     [SerializeField] private Rigidbody m_playerRB;
     [SerializeField] private MouseLook m_playerCam;
@@ -12,8 +14,6 @@ public class Respawn : MonoBehaviour
     [SerializeField] private KeyCode m_centreKey;
     [SerializeField] private Checkpoint m_currentCP;
     [SerializeField] private Checkpoint m_centreCP;
-    [SerializeField] private float m_respawnMaxTime;
-    [SerializeField] private float m_centreMaxTime;
     [SerializeField] private Logic m_disableGravitySuit;
 
     [Header("Interaction with HUD")]
