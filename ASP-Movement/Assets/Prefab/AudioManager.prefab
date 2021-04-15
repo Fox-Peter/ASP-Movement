@@ -45,20 +45,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: MenuButton_Hover
+    audioType: 1
     clip: {fileID: 8300000, guid: 7eb962952cc965d4e802f1746e217a08, type: 3}
-    volume: 0.8
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MenuButton_Click
+    audioType: 1
     clip: {fileID: 8300000, guid: 24e24bf1eb6e70043b5e8bb0b6a47db3, type: 3}
-    volume: 0.8
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ThemeMusic
+    audioType: 0
     clip: {fileID: 8300000, guid: 6acf00083aa60134a98815dc8fe62110, type: 3}
-    volume: 0.8
+    volume: 1
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  m_audioMixerGroup:
+  - {fileID: -3024187739133749372, guid: de5003a723cc3654ca713e527ce98398, type: 2}
+  - {fileID: 287135142979978049, guid: de5003a723cc3654ca713e527ce98398, type: 2}

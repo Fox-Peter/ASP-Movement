@@ -7,6 +7,9 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
+    [SerializeField]
+    private AudioMixerGroup[] m_audioMixerGroup;
+
     public static AudioManager instance;
 
     void Awake()
@@ -29,6 +32,15 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+
+            AudioMixerGroup m = null;
+
+            if (s.audioType == Sound.AudioType.SFX)
+                m = Array.Find(m_audioMixerGroup, mixer => mixer.name == "SFX");
+            else if (s.audioType == Sound.AudioType.MUSIC)
+                m = Array.Find(m_audioMixerGroup, mixer => mixer.name == "Music");
+
+            s.source.outputAudioMixerGroup = m;
         }
     }
 
