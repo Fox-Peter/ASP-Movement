@@ -49,6 +49,9 @@ public class PlayerMovement : MonoBehaviour
         get => m_rb.velocity;
     }
 
+    private bool m_isLerping;
+    private float m_targetFOV = 60;
+
     private void Update()
     {
         m_isGrounded = Physics.CheckSphere(m_groundCheck.position, m_groundCheckDist, m_groundMask);
@@ -62,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
 
         PlayerInput();
         ApplyDrag();
+
+        if(m_isLerping)
+        {
+            LerpFov(m_targetFOV);
+        }
     }
 
     private void ApplyDrag()
@@ -116,13 +124,19 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetKeyDown(m_sprintButton) && m_isGrounded))
         {
             m_sprinting = true;
-            StartCoroutine(LerpFov(70));
+
+            if (m_moveDir.magnitude > 0f)
+            {
+                m_targetFOV = 70;
+                m_isLerping = true;
+            }
         }
 
         if (Input.GetKeyUp(m_sprintButton))
         {
             m_sprinting = false;
-            StartCoroutine(LerpFov(60));
+            m_targetFOV = 60;
+            m_isLerping = true;
         }
     }
 
@@ -152,15 +166,18 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    IEnumerator LerpFov(float targetFOV)
+    private void LerpFov(float targetFOV)
     {
-        while (!RoughlyEquates(m_playerCam.fieldOfView, targetFOV))
+        if (!RoughlyEquates(m_playerCam.fieldOfView, targetFOV))
         {
-            m_playerCam.fieldOfView = Mathf.Lerp(m_playerCam.fieldOfView, targetFOV, 0.005f);
-            yield return null;
+            m_playerCam.fieldOfView = Mathf.Lerp(m_playerCam.fieldOfView, targetFOV, 0.1f);
+        }
+        else
+        {
+            m_isLerping = false;
         }
 
-        yield return null;
+        return;
     }
 
     private bool RoughlyEquates(float val1, float val2)
