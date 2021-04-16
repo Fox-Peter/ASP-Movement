@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Attractor script, written by Brackeys: https://www.youtube.com/watch?v=Ouu3D_VHx9o&ab_channel=Brackeys and tweaked by us
+
 public class Attractor : MonoBehaviour
 {
     const float G = 6.67408f;

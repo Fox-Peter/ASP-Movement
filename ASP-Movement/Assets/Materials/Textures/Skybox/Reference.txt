@@ -1,0 +1,3 @@
+Skybox is one of the example skyboxes that comes pre-packaged with Spacescape by Alex Peterson.
+
+Available at: http://alexcpeterson.com/spacescape/
